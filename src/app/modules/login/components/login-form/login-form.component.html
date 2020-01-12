@@ -1,1 +1,45 @@
-<p>login-form works!</p>
+<!-- Start Login Fomrm -->
+<form [formGroup]="loginForm" (ngSubmit)="submit()">
+
+    <!-- Start Email Input Group -->
+    <div class="form-group">
+        <label for="email">Email address</label>
+        <input type="email" formControlName="email" id="email" placeholder="Enter email"
+            [ngClass]="{ 'form-control': true, 'is-invalid': isEmailInputInvalid, 'is-valid': formControls.email.valid }">
+        <small class="form-text text-muted">We'll never share your email with anyone else.</small>
+        <small class="form-text text-warning" *ngIf="formControls?.email.touched">
+            <span *ngIf="formControls?.email.errors?.required">Email is required</span>
+            <span *ngIf="formControls?.email.errors?.pattern">Email is invalid</span>
+        </small>
+
+    </div>
+    <!-- End Email Input Group -->
+
+    <!-- Start Password Input Group -->
+    <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" formControlName="password" id="password" placeholder="Password"
+            [ngClass]="{ 'form-control': true, 'is-invalid': isPasswordInputInvalid, 'is-valid': formControls.password.valid }">
+
+
+
+        <small class="form-text text-warning" *ngIf="formControls?.password.touched">
+            <span *ngIf="formControls?.password.errors?.required">Password is required</span>
+            <span *ngIf="formControls?.password.errors?.pattern">
+                Your password must be at least 9 characters long,
+                contain letters and
+                numbers, special characters.
+            </span>
+        </small>
+
+
+    </div>
+    <!-- End Password Input Group -->
+
+    <!-- Start Form Submit Button -->
+    <button type="submit" [disabled]="loginForm.invalid" class="btn btn-primary">Submit</button>
+    <!-- End Form Submit Button -->
+
+
+</form>
+<!-- End Login Fomrm -->
