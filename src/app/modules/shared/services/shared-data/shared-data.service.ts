@@ -15,6 +15,7 @@ export class SharedDataService {
   user: BehaviorSubject<User> = new BehaviorSubject<User>(this.getUserFromLocalStorage());
 
   constructor(private router: Router) {
+
     this.user.subscribe(
       user => {
         this.setUserInLocalStorage(user);

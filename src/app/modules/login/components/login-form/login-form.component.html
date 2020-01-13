@@ -3,13 +3,13 @@
 
     <!-- Start Email Input Group -->
     <div class="form-group">
-        <label for="email">Email address</label>
-        <input type="email" formControlName="email" id="email" placeholder="Enter email"
+        <label for="email">{{'Email address' | translate }}</label>
+        <input type="email" formControlName="email" id="email" placeholder="{{'Enter email' | translate }}"
             [ngClass]="{ 'form-control': true, 'is-invalid': isEmailInputInvalid, 'is-valid': formControls.email.valid }">
         <small class="form-text text-muted">We'll never share your email with anyone else.</small>
         <small class="form-text text-warning" *ngIf="formControls?.email.touched">
-            <span *ngIf="formControls?.email.errors?.required">Email is required</span>
-            <span *ngIf="formControls?.email.errors?.pattern">Email is invalid</span>
+            <span *ngIf="formControls?.email.errors?.required">{{'Email is required' | translate }}</span>
+            <span *ngIf="formControls?.email.errors?.pattern">{{'Email is invalid' | translate }}</span>
         </small>
 
     </div>
@@ -17,14 +17,14 @@
 
     <!-- Start Password Input Group -->
     <div class="form-group">
-        <label for="password">Password</label>
-        <input type="password" formControlName="password" id="password" placeholder="Password"
+        <label for="password">{{'Password' | translate }}</label>
+        <input type="password" formControlName="password" id="password" placeholder="{{'Password' | translate }}"
             [ngClass]="{ 'form-control': true, 'is-invalid': isPasswordInputInvalid, 'is-valid': formControls.password.valid }">
 
 
 
         <small class="form-text text-warning" *ngIf="formControls?.password.touched">
-            <span *ngIf="formControls?.password.errors?.required">Password is required</span>
+            <span *ngIf="formControls?.password.errors?.required">{{'Password is required' | translate }}</span>
             <span *ngIf="formControls?.password.errors?.pattern">
                 Your password must be at least 9 characters long,
                 contain letters and
@@ -37,7 +37,7 @@
     <!-- End Password Input Group -->
 
     <!-- Start Form Submit Button -->
-    <button type="submit" [disabled]="loginForm.invalid" class="btn btn-primary">Submit</button>
+    <button type="submit" [disabled]="loginForm.invalid" class="btn btn-primary">{{'Submit' | translate }}</button>
     <!-- End Form Submit Button -->
 
 
