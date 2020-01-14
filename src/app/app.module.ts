@@ -6,7 +6,8 @@ import { AppComponent } from './app.component';
 import { SharedModule } from './modules/shared/shared.module';
 import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HttpInterceptorService } from './modules/shared/services/http-interceptor/http-interceptor.service';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -20,14 +21,14 @@ export function HttpLoaderFactory(http: HttpClient) {
   imports: [
     BrowserModule,
     AppRoutingModule,
-  TranslateModule.forRoot({
+    SharedModule.forRoot(),
+    TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
         useFactory: HttpLoaderFactory,
         deps: [HttpClient]
       }
     }),
-    SharedModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
