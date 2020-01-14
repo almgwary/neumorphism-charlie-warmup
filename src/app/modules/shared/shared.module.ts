@@ -1,4 +1,4 @@
-import { NgModule, SkipSelf, Optional } from '@angular/core';
+import { NgModule, SkipSelf, Optional, ErrorHandler } from '@angular/core';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -8,12 +8,14 @@ import { SharedDataService } from './services/shared-data/shared-data.service';
 import { LanguageService } from './services/language/language.service';
 import { TranslateModule } from '@ngx-translate/core';
 import { HttpInterceptorService } from './services/http-interceptor/http-interceptor.service';
+import { ErrorHandlerService } from './services/error-handler/error-handler.service';
 
 
 const providers = [
   ApiService,
   LanguageService,
   { provide: HTTP_INTERCEPTORS, useClass: HttpInterceptorService, multi: true },
+  {provide: ErrorHandler, useClass: ErrorHandlerService},
   SharedDataService
 ];
 
