@@ -10,6 +10,7 @@ import { SharedModule } from '../shared/shared.module';
   declarations: [DashboardComponent],
   imports: [
     CommonModule,
+    SharedModule,
     DashboardRoutingModule
   ]
 })

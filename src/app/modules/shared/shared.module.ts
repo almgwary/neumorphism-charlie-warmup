@@ -9,6 +9,7 @@ import { LanguageService } from './services/language/language.service';
 import { TranslateModule } from '@ngx-translate/core';
 import { HttpInterceptorService } from './services/http-interceptor/http-interceptor.service';
 import { ErrorHandlerService } from './services/error-handler/error-handler.service';
+import { LogoutComponent } from './components/logout/logout.component';
 
 
 const providers = [
@@ -28,22 +29,19 @@ const exportedModules = [
 ];
 
 @NgModule({
-  declarations: [],
+  declarations: [LogoutComponent],
   imports: [
     ...exportedModules
   ],
   exports: [
+    LogoutComponent,
+    TranslateModule,
     ...exportedModules
   ]
 })
 export class SharedModule {
 
-  constructor(@Optional() @SkipSelf() shareModule: SharedModule) {
-    if (shareModule) {
-      throw new Error(
-        'CoreModule is already loaded. Import it in the AppModule only');
-    }
-  }
+  constructor() {}
 
   static forRoot(): ModuleWithProviders {
     return {
