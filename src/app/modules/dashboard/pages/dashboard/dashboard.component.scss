@@ -1,0 +1,29 @@
+img {
+  border-radius: 10pt;
+  width: 79pt;
+  display: block;
+  margin: 5% auto ;
+}
+
+:host{
+    background-color:#E0E5EC;
+    display: block;
+    min-height: 100vh;
+    padding-top: 10%;
+}
+.box{
+  /* Basic styling and alignment */
+  margin-left: auto;
+  margin-right: auto;
+  margin-top:100px;
+  border-radius:4px;
+  width:150px;
+  height:150px;
+    /* Basic styling and alignment */
+  /* For Neumorphism Effect */
+  background-color:#E0E5EC;
+  box-shadow: 9px 9px 16px rgb(163,177,198,0.6), -9px -9px 16px  rgba(255,255,255, 0.5);
+    /* For Neumorphism Effect */
+}
+
+

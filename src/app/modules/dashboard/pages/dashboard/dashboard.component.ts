@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { isNumber } from 'lodash';
+import { SharedDataService } from 'src/app/modules/shared/services/shared-data/shared-data.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -8,7 +9,9 @@ import { isNumber } from 'lodash';
 })
 export class DashboardComponent implements OnInit {
 
-  constructor() { }
+  data;
+  constructor(private sharedData: SharedDataService) { }
+
 
   ngOnInit() {
     console.log(isNumber(1));
