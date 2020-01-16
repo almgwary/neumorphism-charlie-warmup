@@ -1,13 +1,16 @@
-<!-- Start Login Fomrm -->
+<!-- Start Login Form -->
 <form [formGroup]="loginForm" (ngSubmit)="submit()">
 
     <!-- Start Email Input Group -->
     <div class="form-group">
         <label for="email">{{'Email address' | translate }}</label>
-        <input type="email" formControlName="email" id="email" placeholder="{{'Enter email' | translate }}"
+        <div class="neumorphic-inside">
+            <input type="email" formControlName="email" id="email" placeholder="{{'Enter email' | translate }}"
             [ngClass]="{ 'form-control': true, 'is-invalid': isEmailInputInvalid, 'is-valid': formControls.email.valid }">
-        <small class="form-text text-muted">We'll never share your email with anyone else.</small>
-        <small class="form-text text-warning" *ngIf="formControls?.email.touched">
+        </div>
+        
+        <small class="form-text text-muted">{{'We\'ll never share your email with anyone else.' | translate}}</small>
+        <small class="form-text text-danger" *ngIf="formControls?.email.touched">
             <span *ngIf="formControls?.email.errors?.required">{{'Email is required' | translate }}</span>
             <span *ngIf="formControls?.email.errors?.pattern">{{'Email is invalid' | translate }}</span>
         </small>
@@ -18,12 +21,14 @@
     <!-- Start Password Input Group -->
     <div class="form-group">
         <label for="password">{{'Password' | translate }}</label>
-        <input type="password" formControlName="password" id="password" placeholder="{{'Password' | translate }}"
+        <div class="neumorphic-inside">
+            <input type="password" formControlName="password" id="password" placeholder="{{'Password' | translate }}"
             [ngClass]="{ 'form-control': true, 'is-invalid': isPasswordInputInvalid, 'is-valid': formControls.password.valid }">
+        </div>
+        
 
 
-
-        <small class="form-text text-warning" *ngIf="formControls?.password.touched">
+        <small class="form-text text-danger" *ngIf="formControls?.password.touched">
             <span *ngIf="formControls?.password.errors?.required">{{'Password is required' | translate }}</span>
             <span *ngIf="formControls?.password.errors?.pattern">
                 Your password must be at least 9 characters long,
@@ -42,4 +47,4 @@
 
 
 </form>
-<!-- End Login Fomrm -->
+<!-- End Login Form -->
