@@ -10,6 +10,7 @@ import { TranslateModule } from '@ngx-translate/core';
 import { HttpInterceptorService } from './services/http-interceptor/http-interceptor.service';
 import { ErrorHandlerService } from './services/error-handler/error-handler.service';
 import { LogoutComponent } from './components/logout/logout.component';
+import { RateComponent } from './components/rate/rate.component';
 
 
 const providers = [
@@ -29,12 +30,13 @@ const exportedModules = [
 ];
 
 @NgModule({
-  declarations: [LogoutComponent],
+  declarations: [LogoutComponent, RateComponent],
   imports: [
     ...exportedModules
   ],
   exports: [
     LogoutComponent,
+    RateComponent,
     TranslateModule,
     ...exportedModules
   ]
