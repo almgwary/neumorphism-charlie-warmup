@@ -47,7 +47,7 @@ export class LanguageService {
   }
 
   private getLang(): Language {
-    const dataString: any = localStorage.getItem(LANG_LOCAL_STORAGE_KEY) || Language.AR;
+    const dataString: any = localStorage.getItem(LANG_LOCAL_STORAGE_KEY) || Language.DE;
     return dataString;
   }
 
